@@ -16,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/maurera91/BurgerTime/issues"
   },
-  "homepage": "https://github.com/maurera91/BurgerTime#readme"
+  "homepage": "https://github.com/maurera91/BurgerTime#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.0",
+    "handlebars-helper-css": "^0.1.0",
+    "mysql": "^2.16.0"
+  }
 }
