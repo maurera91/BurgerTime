@@ -32,9 +32,9 @@ const orm = {
         }); 
     },
     create: (table, cols, vals, cb) => {
-        let queryString = `INSERT INTO ${table} (${col.toString()}) VALUES (${printQuestionMarks(vals.length)})`;
+        let queryString = `INSERT INTO ${table} (${cols.toString()}) VALUES (${printQuestionMarks(vals.length)})`;
         console.log(queryString);
-        connection.query(queryString, (err, result) =>{
+        connection.query(queryString, vals, (err, result) =>{
             if (err) throw err
             cb(result);
         });

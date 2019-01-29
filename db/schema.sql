@@ -1,3 +1,4 @@
+drop DATABASE if EXISTS burgers;
 CREATE DATABASE burgers;
 USE burgers;
 

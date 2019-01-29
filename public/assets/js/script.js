@@ -19,7 +19,7 @@ $(function() {
   
       var newBurger = {
         name: $("#burger").val().trim(),
-        sleepy: false
+        devoured: false
       };
   
       $.ajax("/api/burgers", {
