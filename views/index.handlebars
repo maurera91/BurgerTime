@@ -1,6 +1,6 @@
 <div class="jumbotron">
     <h1 class = "display-4">BurgerTime!</h1>
-    <img src = "../public/assests/images/149301.png"
+    <img src = "../public/assests/images/149301.png"/>
 </div>
 <div class="container">
     <div class = "row">
@@ -11,7 +11,7 @@
                     {{#unless devoured}}
                         {{> burgers/burger-block devoured=false}}
                     {{/unless}}
-                {{#each}}
+                {{/each}}
             </ul>
         </div>
         <div class = "col-6">
@@ -21,7 +21,7 @@
                     {{#if devoured}}
                         {{> burgers/burger-block devoured=true}}
                     {{/if}}
-                {{#each}}
+                {{/each}}
             </ul>
 
         </div>
