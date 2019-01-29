@@ -1,7 +1,7 @@
 $(function() {
     $(".devour").on("click", (event) => {
       var id = $(this).data("id");
-      var devoured = true;
+      var devoured = 1;
   
       $.ajax("/api/burgers/" + id, {
         type: "PUT",
@@ -19,7 +19,7 @@ $(function() {
   
       var newBurger = {
         name: $("#burger").val().trim(),
-        devoured: false
+        devoured: 0
       };
   
       $.ajax("/api/burgers", {
