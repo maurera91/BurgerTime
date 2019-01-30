@@ -34,6 +34,8 @@ const orm = {
     create: (table, cols, vals, cb) => {
         let queryString = `INSERT INTO ${table} (${cols.toString()}) VALUES (${printQuestionMarks(vals.length)})`;
         console.log(queryString);
+        vals[1] = parseInt(vals[1]);
+        console.log(vals);
         connection.query(queryString, vals, (err, result) =>{
             if (err) throw err
             cb(result);

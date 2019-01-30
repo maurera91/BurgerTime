@@ -6,11 +6,11 @@ const burger = require("../models/burgers");
 
 router.get("/", (req,res)=>{
     burger.all((data)=>{
-        let obj = {
+        let burgers = {
             burgers: data
         }
-        console.log(obj);
-        res.render("index", obj);
+        console.log(burgers);
+        res.render("index", burgers);
     });
 });
 

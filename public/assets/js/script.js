@@ -17,7 +17,7 @@ $(function() {
     $(".create-form").on("submit", (event) => {
       event.preventDefault();
   
-      var newBurger = {
+      let newBurger = {
         name: $("#burger").val().trim(),
         devoured: 0
       };
