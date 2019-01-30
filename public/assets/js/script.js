@@ -1,6 +1,6 @@
 $(function() {
     $(".devour").on("click", (event) => {
-      var id = $(this).data("id");
+      var id = $(this).attr("id");
       var devoured = 1;
   
       $.ajax("/api/burgers/" + id, {
@@ -9,6 +9,20 @@ $(function() {
       }).then(
         function() {
           console.log("changed devoured to", devoured);
+          location.reload();
+        }
+      );
+    });
+
+    $(".delete").on("click", (event) => {
+      var id = $(this).attr("id");
+      var devoured = 1;
+  
+      $.ajax("/api/burgers/" + id, {
+        type: "DELETE"
+      }).then(
+        function() {
+          console.log(`burger with id ${id} deleted`);
           location.reload();
         }
       );

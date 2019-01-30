@@ -1,6 +1,6 @@
 <div class="jumbotron">
     <h1 class = "display-4 text-center">BurgerTime!</h1>
-    <img src = "/assets/images/149301.png"  class="mx-auto img-fluid" style="display: block; margin-left: auto; margin-right: auto;width: 50%;"/>
+    <img src = "/assets/images/149301.png"  class="mx-auto img-fluid" style="display: block; margin-left: auto; margin-right: auto;width: 25%;"/>
 </div>
 <div class="container">
     <div class = "row pb-3">
@@ -8,9 +8,9 @@
             <h4 class = "text-center">Burgers To be Devoured</h4>
             <ul>
                 {{#each burgers}}
-                    {{#unless devoured}}
-                        {{> burgers/burger-block devoured=false}}
-                    {{/unless}}
+                    {{#if devoured}}
+                        {{>burgers/burger-block devoured=false}}
+                    {{/if}}
                 {{/each}}
             </ul>
         </div>
@@ -18,9 +18,9 @@
             <h4 class = "text-center" >Devoured Burgers</h4>
             <ul>
                 {{#each burgers}}
-                    {{#if devoured}}
+                    {{#unless devoured}}
                         {{> burgers/burger-block devoured=true}}
-                    {{/if}}
+                    {{/unless}}
                 {{/each}}
             </ul>
 

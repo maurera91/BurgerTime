@@ -12,9 +12,9 @@ function printQuestionMarks(num){
 
 function objToSql(object){
     let arr = [];
-    for (let key in ob){
-        let value = ob[key];
-        if (Object.hasOwnProperty.call(ob,key)){
+    for (let key in object){
+        let value = object[key];
+        if (Object.hasOwnProperty.call(object,key)){
             if(typeof value === "string" && value.indexOf(" ") >= 0){
                 value = `"${value}"`;
             }
