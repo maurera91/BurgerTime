@@ -1,23 +1,28 @@
-$(function() {
-    $(".devour").on("click", (event) => {
-      var id = $(this).attr("id");
+
+$(document).ready(function() {
+    $("#devour").on("click", function(event) {
+      var id = $(this).data("id");
+      console.log($(this).data("id"));
       var devoured = 1;
+      console.log(id, devoured);
+
+      let newDevoured = {
+        devoured: devoured
+      }
   
       $.ajax("/api/burgers/" + id, {
         type: "PUT",
-        data: devoured
-      }).then(
-        function() {
+        data: newDevoured
+      }).then(function() {
           console.log("changed devoured to", devoured);
           location.reload();
         }
       );
     });
 
-    $(".delete").on("click", (event) => {
-      var id = $(this).attr("id");
-      var devoured = 1;
-  
+    $("#delete").on("click", function(event){
+      var id = $(this).data("id");
+      console.log(id);
       $.ajax("/api/burgers/" + id, {
         type: "DELETE"
       }).then(
