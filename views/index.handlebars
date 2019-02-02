@@ -5,12 +5,12 @@
 <div class="container">
     <div class = "row pb-3">
         <div class = "col-5 border mr-1 pt-1">
-            <h4 class = "text-center">Burgers To be Devoured</h4>
+            <h4 class = "text-center">Burgers To Be Devoured</h4>
             <ul>
                 {{#each burgers}}
-                    {{#if devoured}}
+                    {{#unless devoured}}
                         {{>burgers/burger-block devoured=false}}
-                    {{/if}}
+                    {{/unless}}
                 {{/each}}
             </ul>
         </div>
@@ -18,9 +18,9 @@
             <h4 class = "text-center" >Devoured Burgers</h4>
             <ul>
                 {{#each burgers}}
-                    {{#unless devoured}}
+                    {{#if devoured}}
                         {{> burgers/burger-block devoured=true}}
-                    {{/unless}}
+                    {{/if}}
                 {{/each}}
             </ul>
 

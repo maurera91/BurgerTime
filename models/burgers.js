@@ -18,6 +18,7 @@ var burgers = {
     },
     delete: (condition, cb) => {
         orm.delete("burgers",condition, (res) =>{
+            console.log("model fire");
             cb(res);
         })
     }

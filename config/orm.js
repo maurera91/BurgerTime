@@ -10,17 +10,30 @@ function printQuestionMarks(num){
     //returns string of "?" characters of number num
 }
 
-function objToSql(object){
-    let arr = [];
-    for (let key in object){
-        let value = object[key];
-        if (Object.hasOwnProperty.call(object,key)){
-            if(typeof value === "string" && value.indexOf(" ") >= 0){
-                value = `"${value}"`;
-            }
-            arr.push(`${key}=${value}`);
+function objToSql(ob) {
+    console.log("start obj to sql");
+    console.log(ob);
+    var arr = [];
+  
+    // loop through the keys and push the key/value as a string int arr
+    for (var key in ob) {
+        console.log(`Key = ${key}`);
+      var value = ob[key];
+      console.log (`Value = ${value}`);
+      // check to skip hidden properties
+      console.log(Object.hasOwnProperty.call(ob, key));
+      if (Object.hasOwnProperty.call(ob, key)){
+        // if string with spaces, add quotations (Lana Del Grey => 'Lana Del Grey')
+        if (typeof value === "string" && value.indexOf(" ") >= 0) {
+          value = "'" + value + "'";
         }
+        // e.g. {name: 'Lana Del Grey'} => ["name='Lana Del Grey'"]
+        // e.g. {sleepy: true} => ["sleepy=true"]
+        arr.push(key + "=" + value);
+        console.log(arr);
+      }
     }
+    return arr;
 }
 
 const orm = {
@@ -43,13 +56,16 @@ const orm = {
     },
     update: (table, objColVals, condition, cb) => {
         let queryString = `UPDATE ${table} SET ${objToSql(objColVals)} WHERE ${condition}`
+        console.log(objColVals);
         console.log(queryString);
+        console.log(objToSql(objColVals));
         connection.query(queryString, (err, result) =>{
             if (err) throw err;
             cb(result);
         })
     },
     delete: (table,condition,cb) => {
+        console.log("orm fire");
         let queryString = `DELETE FROM ${table} WHERE ${condition}`
         console.log(queryString);
         connection.query(queryString, (err, result) =>{

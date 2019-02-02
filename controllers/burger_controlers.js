@@ -35,6 +35,7 @@ router.put("/api/burgers/:id", (req, res) => {
 });
 
 router.delete("/api/burgers/:id", (req, res) =>{
+    console.log("controller fire");
     const condition = `id = ${req.params.id}`;
     burger.delete(condition, (result) => {
         if (result.changedRows == 0){

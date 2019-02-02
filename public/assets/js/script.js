@@ -20,13 +20,13 @@ $(document).ready(function() {
       );
     });
 
-    $("#delete").on("click", function(event){
+    $(".delete").on("click", function(event){
       var id = $(this).data("id");
       console.log(id);
+      console.log("fire api");
       $.ajax("/api/burgers/" + id, {
         type: "DELETE"
-      }).then(
-        function() {
+      }).then(function() {
           console.log(`burger with id ${id} deleted`);
           location.reload();
         }
