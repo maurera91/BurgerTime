@@ -34,14 +34,18 @@ router.put("/api/burgers/:id", (req, res) => {
     });
 });
 
-router.delete("/api/burgers/:id", (req, res) =>{
+router.delete("/api/burgers/:id", (req, res) => {
     console.log("controller fire");
     const condition = `id = ${req.params.id}`;
     burger.delete(condition, (result) => {
-        if (result.changedRows == 0){
+        console.log(`RESULT = ${result}`);
+        console.log(result);
+        
+        if (result.affectedRows == 0){
             return res.status(404).end();
         }
         else{
+            console.log("deleted")
             return res.status(200).end();
         }  
     })

@@ -25,7 +25,7 @@ $(document).ready(function() {
       console.log(id);
       console.log("fire api");
       $.ajax("/api/burgers/" + id, {
-        type: "DELETE"
+        method: "DELETE"
       }).then(function() {
           console.log(`burger with id ${id} deleted`);
           location.reload();
